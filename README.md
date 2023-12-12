@@ -2,6 +2,7 @@
 ## Subreddit Classification based on Post Titles
 
 ## Overview
+*Note: "PlantMa" is a fictional entity created for this project's narrative. It is used to contextualize the methodologies presented. This fictional company does not represent any real business, and similarities to any real entities are purely coincidental.*
 
 PlantMa, our agricultural startup company specializing in houseplants and gardening supplies, is looking to optimize its marketing strategies and product offerings for two distinct customer segments: houseplant enthusiasts and gardening enthusiasts. We aim to improve our marketing strategies by building a model to classify Reddit posts from two distinct subreddits, /r/houseplants and /r/gardening, based on their post titles. The ultimate goal is to build a classification model that provides insights enabling us to target our marketing efforts more effectively and could potentially be repurposed for use in other online communities.
 

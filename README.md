@@ -2,8 +2,10 @@
 ## Subreddit Classification based on Post Titles
 
 ## Overview
+This project aims to explore and distinguish between posts from two Reddit communities—/r/houseplants and /r/gardening—by classifying posts based on their titles. The overarching goal is to build a robust binary classification model that can predict which subreddit a given post belongs to, based on the language and content in the title.
 
-PlantMa, our agricultural startup company specializing in houseplants and gardening supplies, is looking to optimize its marketing strategies and product offerings for two distinct customer segments: houseplant enthusiasts and gardening enthusiasts. We aim to improve our marketing strategies by building a model to classify Reddit posts from two distinct subreddits, /r/houseplants and /r/gardening, based on their post titles. The ultimate goal is to build a classification model that provides insights enabling us to target our marketing efforts more effectively and could potentially be repurposed for use in other online communities.
+Understanding the distinctions between these communities not only deepens insight into user behavior and language patterns but also opens the door for applications in content recommendation, community analysis, and digital marketing strategies.
+
 
 ## Data Dictionary
 | Feature       | Type    | Description                                             |
@@ -19,14 +21,11 @@ PlantMa, our agricultural startup company specializing in houseplants and garden
 
 ## Executive Summary
 
-Our project's primary objectives are as follows:
-- Collect and analyze Reddit posts to gain insights into the distinct characteristics of the "houseplants" and "gardening" subreddits by the end of the fiscal quarter.
+The project's primary objectives are as follows:
+- Collect and analyze Reddit posts to gain insights into the distinct characteristics of the "houseplants" and "gardening" subreddits.
 - Develop a classification model that accurately predicts the subreddit (houseplants or gardening) based on post text content with at least 80% accuracy on testing datasets.
-- Provide PlantMa with actionable insights and recommendations based on our analysis to enhance marketing and product strategies.
 
 To accomplish these goals, data was scraped from Reddit using the PRAW library. After data cleaning and EDA, binary classification models were created utilizing logistic regression and extra tree classifiers.
-
-The project provided valuable data-driven insights to PlantMa which will aid in their marketing campaigns. 
 
 Data Sources:
 - www.reddit.com/r/houseplants/
@@ -175,5 +174,5 @@ For this model, the testing accuracy was approximately 84.51%. Despite the high 
 | Model 2, cvec/extra trees| 0.489    | 0.995              | 0.839             | 0.995         | 0.845        |
 
 ### Evaluation
-In summary, while Model 1 and Model 2 score very similarly on the testing sets, the logistic regression model is also a 'whitebox' model and is therefore more interpretable. It is our reccomendation to utilize Model 1 as the production model for this reason.
+In summary, while Model 1 and Model 2 score very similarly on the testing sets, the logistic regression model is also a 'whitebox' model and is therefore more interpretable.
 

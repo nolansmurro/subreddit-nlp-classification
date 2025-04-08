@@ -95,7 +95,7 @@ A more sophisticated tuned model was created using a pipeline with Count Vectori
 | cvec stop words   | English + Custom |
 
 #### Model Evaluation: 
-The model's performance was assessed by calculating and displaying the accuracy scores on the training and testing sets. Confusion matrices were generated to visualize true positives, true negatives, false positives, and false negatives. A classification report was printed, providing precision, recall, F1-score, and support for each subreddit class. Additionally, the model identified and displayed misclassified posts, along with their true and predicted labels.
+The model's performance was assessed by calculating the accuracy scores on the training and testing sets. Confusion matrices were generated to visualize true positives, true negatives, false positives, and false negatives. A classification report was printed, providing precision, recall, F1-score, and support for each subreddit class. Additionally, the model identified and displayed misclassified posts, along with their true and predicted labels.
 
 <img src="images/model_1_confusion.png" alt="Model 1 Confusion Matrix" width="500">
 
@@ -109,8 +109,9 @@ The model's performance was assessed by calculating and displaying the accuracy 
 | Tuned Testing   | 0.846   |
 
 ##### Interpretation:
-The model achieved a high training accuracy of 97.74%, suggesting strong performance on the training data. However, the significant gap between training and testing accuracy indicates a potential issue of overfitting.
-The testing accuracy of 84.69% shows reasonable generalization to new, unseen data.
+The model achieved a high training accuracy of 97.74%, indicating strong performance on the training data. However, the gap between training and testing accuracy suggests potential overfitting.
+
+The testing accuracy of 84.69% reflects good generalization to new data. More importantly, the classification report shows that precision and recall are well-balanced between both classes, with F1-scores close in value. This suggests that the model does not heavily favor either /r/houseplants or /r/gardening and performs consistently across both communities.
 
 Addressing overfitting may involve adjusting model complexity, regularization, or dataset size.
 Further hyperparameter tuning may optimize testing data performance.
@@ -143,7 +144,7 @@ The tuned model was created using a pipeline that combined Count Vectorization a
 | et n estimators     | 500     |
 
 #### Model Evaluation: 
-The model's performance was evaluated by calculating and displaying the accuracy scores on the training and testing sets. Confusion matrices were generated to visualize true positives, true negatives, false positives, and false negatives. A classification report was printed, providing precision, recall, F1-score, and support for each subreddit class. Additionally, the model identified and displayed misclassified posts, along with their true and predicted labels.
+The model's performance was evaluated by calculating the accuracy scores on the training and testing sets. Confusion matrices were generated to visualize true positives, true negatives, false positives, and false negatives. A classification report was printed, providing precision, recall, F1-score, and support for each subreddit class. Additionally, the model identified and displayed misclassified posts, along with their true and predicted labels.
 
 <img src="images/model_2_confusion.png" alt="Model 2 Confusion Matrix" width="500">
 
@@ -162,9 +163,11 @@ The model calculated and visualized the feature importances from the best estima
 | Tuned Testing   | 0.845   |
 
 ##### Interpretation:
-During training, the model achieved extremely high accuracy of approximately 99.54%. It correctly classified almost all the posts in the training dataset into their respective subreddits. However, such a high training accuracy may also indicate overfitting.
+Model 2 achieved extremely high training accuracy (99.5%), correctly classifying nearly all training examples. However, the near-perfect training performance alongside lower test accuracy (84.5%) suggests overfitting.
 
-For this model, the testing accuracy was approximately 84.51%. Despite the high training accuracy, the model's generalization to new, unseen data was lower, suggesting that it may be overfitting the training data.
+Despite this, precision and recall scores remain balanced across both subreddit classes, indicating that the model still generalizes reasonably well. The F1-scores for both /r/houseplants and /r/gardening are comparable to those of Model 1, reinforcing that the model is not biased toward a specific class.
+
+The Extra Trees Classifier also provides feature importance scores, offering insight into which terms most influenced the classification decision. However, due to the model's complexity, individual decisions are harder to interpret compared to logistic regression.
 
 
 ### Tabulated Result Comparison
@@ -173,6 +176,12 @@ For this model, the testing accuracy was approximately 84.51%. Despite the high 
 | Model 1, cvec/log_reg    | 0.489    | 0.937              | 0.837             | 0.977         | 0.846        |
 | Model 2, cvec/extra trees| 0.489    | 0.995              | 0.839             | 0.995         | 0.845        |
 
-### Evaluation
-In summary, while Model 1 and Model 2 score very similarly on the testing sets, the logistic regression model is also a 'whitebox' model and is therefore more interpretable.
+### Conclusion
+Both models demonstrated strong predictive performance, achieving testing accuracies in the 84–85% range. However, the logistic regression model (Model 1) has two key advantages:
+
+1. **Interpretability** – Logistic regression offers transparency in how input features influence predictions, which is valuable for model auditing and communication.
+2. **Balanced Performance** – Precision, recall, and F1-scores for both classes are nearly identical, showing that the model treats both subreddits equitably.
+
+These characteristics make Model 1 the preferred candidate for deployment, especially in user-facing or content moderation contexts where explainability and fairness matter.
+
 

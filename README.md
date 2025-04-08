@@ -163,7 +163,7 @@ The model calculated and visualized the feature importances from the best estima
 | Tuned Testing   | 0.845   |
 
 ##### Interpretation:
-Model 2 achieved extremely high training accuracy (99.5%), correctly classifying nearly all training examples. However, the near-perfect training performance alongside lower test accuracy (84.5%) suggests overfitting.
+Model 2 achieved extremely high training accuracy (99.5%), correctly classifying nearly all training examples. However, the near-perfect training performance alongside lower test accuracy (84.5%) suggests possible overfitting.
 
 Despite this, precision and recall scores remain balanced across both subreddit classes, indicating that the model still generalizes reasonably well. The F1-scores for both /r/houseplants and /r/gardening are comparable to those of Model 1, reinforcing that the model is not biased toward a specific class.
 
@@ -177,11 +177,5 @@ The Extra Trees Classifier also provides feature importance scores, offering ins
 | Model 2, cvec/extra trees| 0.489    | 0.995              | 0.839             | 0.995         | 0.845        |
 
 ### Conclusion
-Both models demonstrated strong predictive performance, achieving testing accuracies in the 84–85% range. However, the logistic regression model (Model 1) has two key advantages:
-
-1. **Interpretability** – Logistic regression offers transparency in how input features influence predictions, which is valuable for model auditing and communication.
-2. **Balanced Performance** – Precision, recall, and F1-scores for both classes are nearly identical, showing that the model treats both subreddits equitably.
-
-These characteristics make Model 1 the preferred candidate for deployment, especially in user-facing or content moderation contexts where explainability and fairness matter.
-
+Both models demonstrated strong predictive performance, achieving testing accuracies in the 84–85% range. However, the logistic regression model (Model 1) is more interpretable. Therefore, Model 1 is recommended as a  candidate for future deployment
 
